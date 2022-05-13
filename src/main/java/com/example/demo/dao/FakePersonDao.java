@@ -43,6 +43,7 @@ public class FakePersonDao implements PersonDao{
 
     @Override
     public int updatePerson(UUID id,Person person) {
+
         db.removeIf(person1 -> person1.getId().equals(id));
         db.add(new Person(id, person.getName()));
         return 1;
