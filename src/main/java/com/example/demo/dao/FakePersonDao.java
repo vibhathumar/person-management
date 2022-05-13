@@ -7,10 +7,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
-@Repository
+
+@Repository("fakeDao")
 public class FakePersonDao implements PersonDao{
 
-    private static List<Person> db=new ArrayList<>();
+    private final List<Person> db=new ArrayList<>();
 
     @Override
     public int insertPerson(UUID id, Person person) {
