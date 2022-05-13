@@ -8,24 +8,27 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
-@Repository
+@Repository("mongoDao")
 public class MongoPersonDao  implements PersonDao{
     
-    private final PersonDao personMongoDb;
+    private final List<Person> personMongoDb;
+
 
     @Autowired
-    public MongoPersonDao(PersonDao personMongoDb) {
+    public MongoPersonDao(List<Person> personMongoDb) {
         this.personMongoDb = personMongoDb;
     }
 
     @Override
     public int insertPerson(UUID id, Person person) {
-        return 0;
+        personMongoDb.add(new Person(id,person.getName()));
+        return 1;
     }
 
     @Override
     public List<Person> getAllPerson() {
-        return null;
+        personMongoDb.add(new Person(UUID.randomUUID(),"Vira"));
+        return personMongoDb;
     }
 
     @Override
