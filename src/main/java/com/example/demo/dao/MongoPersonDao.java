@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
-@Repository("mongoDao")
+@Repository("mongoDao1")
 public class MongoPersonDao  implements PersonDao{
     
     private final List<Person> personMongoDb;
